@@ -4,8 +4,12 @@ import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
 
 function ExpenseItem(props) {
+  const deleteHandler = () => {
+    props.onDelete(props.title);
+  };
+
   return (
-    <li>
+    <li onClick={deleteHandler}>
       <Card className="expense-item">
         <ExpenseDate date={props.date}></ExpenseDate>
         <div className="expense-item__description">
