@@ -22,7 +22,7 @@ const DUMMY_EXPENSES = [
     date: new Date(2021, 8, 30),
   },
   {
-    id: 3,
+    id: 4,
     title: "Clock 2022",
     amount: 23,
     date: new Date(2022, 7, 6),
@@ -34,14 +34,15 @@ function App() {
 
   const addExpenseHandler = (enteredExpenseData) => {
     setExpenses((prevExpenses) => {
+      enteredExpenseData.id = Math.random().toString();
       return [enteredExpenseData, ...prevExpenses];
     });
   };
 
-  const deleteExpenseHandler = (title) => {
+  const deleteExpenseHandler = (id) => {
     setExpenses((prevExpenses) => {
       const updatedExpenses = prevExpenses.filter(
-        (expense) => expense.title !== title
+        (expense) => expense.id !== id
       );
       return updatedExpenses;
     });

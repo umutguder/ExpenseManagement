@@ -5,7 +5,7 @@ import "./ExpenseItem.css";
 
 function ExpenseItem(props) {
   const deleteHandler = () => {
-    props.onDelete(props.title);
+    props.onDelete(props.id);
   };
 
   return (
