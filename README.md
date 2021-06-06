@@ -4,6 +4,9 @@
 - Filtering expenses according to year
 - Visualizing yearly distribition of expenses
 - Input Validation
+- Modal Component
+- Fragment
+- Portal
 
 In order to run the program, after download or pull run 
 - npm install 
