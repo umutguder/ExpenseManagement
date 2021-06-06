@@ -1,8 +1,9 @@
 # ExpenseManagement
 
-- Adding new expenses 
+- Adding/Deleting expenses 
 - Filtering expenses according to year
 - Visualizing yearly distribition of expenses
+- Input Validation
 
 In order to run the program, after download or pull run 
 - npm install 
