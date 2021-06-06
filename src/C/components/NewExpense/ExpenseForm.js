@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../UI/Button";
+import Wrapper from "../Helpers/Wrapper";
 import ErrorModal from "../UI/ErrorModal";
 import styles from "./ExpenseForm.module.css";
 
@@ -84,7 +85,7 @@ const ExpenseForm = (props) => {
   };
 
   return (
-    <div>
+    <Wrapper>
       {error && (
         <ErrorModal
           title={error.title}
@@ -142,7 +143,7 @@ const ExpenseForm = (props) => {
           <Button type="submit">Add Expense</Button>
         </div>
       </form>
-    </div>
+    </Wrapper>
   );
 };
 
