@@ -7,11 +7,3 @@ function Card(props) {
 }
 
 export default Card;
-
-/* alternative function definition
-const Card = (probs) => {
-  const classes = "card " + props.className;
-  return <div className={classes}>{props.children}</div>;
-
-};
-*/

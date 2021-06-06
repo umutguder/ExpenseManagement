@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../UI/Button";
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
 
@@ -25,7 +26,7 @@ function NewExpense(props) {
   return (
     <div className="new-expense">
       {!isEditing && (
-        <button onClick={startEdittingHandler}>Add New Expense</button>
+        <Button onClick={startEdittingHandler}>Add New Expense</Button>
       )}
       {isEditing && (
         <ExpenseForm
