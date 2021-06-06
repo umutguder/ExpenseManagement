@@ -49,11 +49,13 @@ function App() {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
       <Expenses expenses={expenses} onDelete={deleteExpenseHandler}></Expenses>
-    </div>
+    </React.Fragment>
   );
+
+  /* Instead we could use <></>*/
 }
 
 export default App;
