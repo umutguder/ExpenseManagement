@@ -41,7 +41,11 @@
 
 .control.invalid input {
   border-color: red;
-  background: #fbdada;
+  background: rgb(253, 162, 162);
+}
+
+.control.invalid label {
+  color: red;
 }
 
 .actions {
