@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import MainHeader from "./C/components/MainHeader/MainHeader";
 import Login from "./C/components/Login/Login";
 import Home from "./C/components/Home/Home";
+import AuthContext from "./store/auth-context";
 
 const DUMMY_EXPENSES = [
   {
@@ -75,8 +76,12 @@ function App() {
   };
 
   return (
-    <React.Fragment>
-      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+      }}
+    >
+      <MainHeader onLogout={logoutHandler} />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
         {isLoggedIn && (
@@ -88,7 +93,7 @@ function App() {
           />
         )}
       </main>
-    </React.Fragment>
+    </AuthContext.Provider>
   );
 
   /* Instead we could use <></>*/
