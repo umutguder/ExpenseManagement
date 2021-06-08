@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import Expenses from "./C/components/Expenses/Expenses";
-import NewExpense from "./C/components/NewExpense/NewExpense";
+
+import MainHeader from "./C/components/MainHeader/MainHeader";
+import Login from "./C/components/Login/Login";
+import Home from "./C/components/Home/Home";
 
 const DUMMY_EXPENSES = [
   {
@@ -48,10 +50,30 @@ function App() {
     });
   };
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const loginHandler = (email, password) => {
+    setIsLoggedIn(true);
+  };
+
+  const logoutHandler = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <React.Fragment>
-      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
-      <Expenses expenses={expenses} onDelete={deleteExpenseHandler}></Expenses>
+      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+      <main>
+        {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {isLoggedIn && (
+          <Home
+            expenses={expenses}
+            addExpenseHandler={addExpenseHandler}
+            deleteExpenseHandler={deleteExpenseHandler}
+            onLogout={logoutHandler}
+          />
+        )}
+      </main>
     </React.Fragment>
   );
 
