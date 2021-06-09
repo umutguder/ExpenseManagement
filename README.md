@@ -7,6 +7,13 @@
 - Modal Component
 - Fragment
 - Portal
+- ImperativeHandler
+- ForwardRef
+- useState
+- useEffect
+- useReducer
+- useContext
+- useRef
 
 In order to run the program, after download or pull run 
 - npm install 
