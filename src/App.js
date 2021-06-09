@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 
 import MainHeader from "./C/components/MainHeader/MainHeader";
 import Login from "./C/components/Login/Login";
@@ -35,20 +35,7 @@ const DUMMY_EXPENSES = [
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  //Runs when dependencies chance
-  // No dependencies => runs only once after start
-  //runs only when we wanted to
-  // dont run in every render
-  // no deadlock
-  useEffect(() => {
-    const storedUserLoggedInfo = localStorage.getItem("isLoggedIn");
-
-    if (storedUserLoggedInfo === "1") {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
+  const ctx = useContext(AuthContext);
   const addExpenseHandler = (enteredExpenseData) => {
     setExpenses((prevExpenses) => {
       enteredExpenseData.id = Math.random().toString();
@@ -65,35 +52,21 @@ function App() {
     });
   };
 
-  const loginHandler = (email, password) => {
-    localStorage.setItem("isLoggedIn", 1);
-    setIsLoggedIn(true);
-  };
-
-  const logoutHandler = () => {
-    localStorage.removeItem("isLoggedIn");
-    setIsLoggedIn(false);
-  };
-
   return (
-    <AuthContext.Provider
-      value={{
-        isLoggedIn: isLoggedIn,
-      }}
-    >
-      <MainHeader onLogout={logoutHandler} />
+    <>
+      <MainHeader />
       <main>
-        {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && (
+        {!ctx.isLoggedIn && <Login />}
+        {ctx.isLoggedIn && (
           <Home
             expenses={expenses}
             addExpenseHandler={addExpenseHandler}
             deleteExpenseHandler={deleteExpenseHandler}
-            onLogout={logoutHandler}
+            onLogout={ctx.onLogout}
           />
         )}
       </main>
-    </AuthContext.Provider>
+    </>
   );
 
   /* Instead we could use <></>*/
