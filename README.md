@@ -12,6 +12,7 @@ In order to run the program, after download or pull run
 - npm install 
 - npm start command 
 - access through http://localhost:3000/
+![Image](https://github.com/umutguder/ExpenseManagement/blob/master/Login.PNG)
 ![Image](https://github.com/umutguder/ExpenseManagement/blob/master/Screen.PNG)
 
 
