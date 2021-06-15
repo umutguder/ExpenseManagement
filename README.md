@@ -15,6 +15,10 @@
 - useContext
 - useRef
 
+A deployed and running version could be accessed through
+https://react-http-8f511.web.app/
+
+
 In order to run the program, after download or pull run 
 - npm install 
 - npm start command 
